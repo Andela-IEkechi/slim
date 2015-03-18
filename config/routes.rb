@@ -2,8 +2,7 @@ Rails.application.routes.draw do
 
   root 'home#show'
 
-  resource :home
-  resource :about
+  get '/about' => 'about#show'
   resources :solutions
   resources :comments
 
