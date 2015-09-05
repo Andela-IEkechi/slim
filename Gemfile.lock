@@ -94,6 +94,7 @@ GEM
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
     pg (0.18.1)
+    popcornjs-rails (1.5.6)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -204,6 +205,7 @@ DEPENDENCIES
   jquery-rails
   mini_magick
   pg
+  popcornjs-rails
   pry-rails
   rails (= 4.2.0)
   rspec

@@ -32,6 +32,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'devise'
+gem "popcornjs-rails"
 # Use debugger
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

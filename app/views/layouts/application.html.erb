@@ -4,17 +4,12 @@
   <title>Slim</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'popcorn-complete.js', 'data-turbolinks-track' => true %>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+  <%= favicon_link_tag 'favicon.ico' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav class="container navbar navbar-fixed-top">
-    <p class="navbar-brand">Monsieur Slim</p>
-    <p class="navbar-text navbar-right">
-      <%= link_to "Home", root_path %>
-      <%= link_to "About", about_path %>
-      <%= link_to "Solutions", solutions_path %>
-    </p>
-</nav>
 <div class="container-fluid">
     <%= yield %>
 </div>

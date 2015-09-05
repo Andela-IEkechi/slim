@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-
+@import url(http://fonts.googleapis.com/css?family=Lato);
 nav a {
     margin: 1.5em;
     padding: 0.5em;
@@ -25,6 +25,20 @@ nav a:hover {
     border-bottom: 2px solid deepskyblue;
 }
 body {
+    background-image: -webkit-gradient(linear, 80% 20%, 10% 21%, from(rgba(232, 172, 0, 0.5)), to(rgba(215, 40, 40, 0.4))),  url('first.jpg');
+}
+
+.ghost{
+
+    background: transparent;
+    color: white!important;
+
+    /* CSS Transition */
+    -webkit-transition: background .2s ease-in-out, border .2s ease-in-out;
+    -moz-transition: background .2s ease-in-out, border .2s ease-in-out;
+    -ms-transition: background .2s ease-in-out, border .2s ease-in-out;
+    -o-transition: background .2s ease-in-out, border .2s ease-in-out;
+    transition: background .2s ease-in-out, border .2s ease-in-out;
 
 }
 

@@ -1,5 +1,6 @@
 class SolutionsController < ApplicationController
   before_action :set_solution, only: [:show, :edit, :update, :destroy]
+  layout "site"
 
   # GET /solutions
   # GET /solutions.json
