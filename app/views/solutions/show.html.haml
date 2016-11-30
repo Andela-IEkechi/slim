@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Problem:
+  = @solution.problem
+%p
+  %strong Image:
+  = @solution.image
+%p
+  %strong Solution:
+  = @solution.solution
+= link_to 'Edit', edit_solution_path(@solution)
+|
+= link_to 'Back', solutions_path
