@@ -1,22 +1,19 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
  *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
+ *= require bootstrap-markdown
  *= require_self
  */
-
+@import "bootstrap-sprockets";
+@import "bootstrap";
 @import "materialize";
-@import "font-awesome.min.css";
-@import url('https://fonts.googleapis.com/css?family=Lato:400i');
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "social-share-button";
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro:400,500|PT+Sans:700,400|Candal|Josefin+Sans:400,600|Raleway:400,800,900|Fredoka+One|Open+Sans:300');
+
+body {
+  font-family: 'Maven Pro', "PT Sans", sans-serif;
+}
 
 .main {
   height: 900px;
@@ -36,3 +33,73 @@
   display: block;
 }
 
+#news {
+  background-color: #f1f1f1;
+  padding: 3em 0;
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.news-post {
+  border-color: #ffffff!important;
+  border: solid 4px;
+  padding: 30px;
+  margin: 1em;
+  transition: all .4s linear;
+  text-transform: uppercase;
+//  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #000000;
+
+  &:hover {
+    border-color: #1976d2!important;
+    text-decoration: none;
+  }
+}
+
+.liner {
+  display: inline-block;
+  width: 100px;
+  height: 4px;
+}
+
+.carousel {
+  height: inherit;
+}
+.button {
+  border:2px solid #333;
+  color: #333;
+  background-color:transparent;
+  padding: 8px 20px;
+  font-size: 17px;
+  border-radius: 0.35rem;
+  text-transform: uppercase;
+  font-weight: 700;
+
+  &:hover {
+    text-decoration: none;
+    border:2px solid #333;
+    background-color: #333;
+    color: #ffffff;
+  }
+}
+#gotoTop {
+  bottom: 30px;
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  color: white;
+  background: rgba(0,0,0, 0.2);
+  text-align: center;
+  top: auto;
+  left: auto;
+  right: 30px;
+  cursor: pointer;
+  border-radius: 2px;
+
+  &:hover {
+    background-color: lightblue;
+  }
+}

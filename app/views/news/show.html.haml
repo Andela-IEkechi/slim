@@ -1,0 +1,20 @@
+#myCarousel.carousel.slide{"data-ride" => "carousel"}
+  .carousel-inner{role: "listbox"}
+    .item.active
+      =image_tag("news.jpg")
+
+#news
+  .container
+    .center-align
+      %h4.flow-text= @news.title
+      .liner.blue.darken-2
+    %br
+    %br
+    %p Published - #{@news.published.strftime("%A, %d %b %Y")}
+    = link_to @news.link, target: "_blank" do
+      .news-post.white
+        %p.flow-text= raw(@news.summary)
+        %br
+        %p.right= @news.agency
+    %br
+    = link_to 'Back', news_index_path, class: "button"

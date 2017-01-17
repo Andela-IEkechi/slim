@@ -1,0 +1,56 @@
+#error_explanation {
+  position: fixed;
+  max-width: 450px;
+  top: 90px;
+  z-index: 5000;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #FF6565;
+    color: #fff;
+  }
+  ul li {
+    font-size: 110%;
+    list-style: square;
+  }
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: #F8E0E6;
+}
+
+#toast-container > div {
+  height: auto;
+  line-height: 18px;
+}
+
+.flash-message {
+  &.error {
+    border-radius: 10px;
+    background-color: #FF6565;
+  }
+  &.notice {
+    border-radius: 10px;
+    background-color: #A4E7A0;
+  }
+  color: black;
+  z-index: 999;
+  position: fixed;
+  font-weight: bold;
+  width: 96%;
+  margin: 20px;
+  p {
+    font-size: 110%;
+    margin: 15px 0;
+  }
+}

@@ -1,0 +1,57 @@
+#fh5co-main
+  .fh5co-overlay-mobile
+  #fh5co-home{"data-section" => "home"}
+    .fh5co-text
+      .container
+        .row.text-center
+          -#%h4 Headlines and Summaries From...
+          %br
+          %br
+          %h1
+            %span.type-pad
+
+  #about{"data-section" => "about"}
+    .row.r-pb
+      .col-md-8.col-md-offset-2.text-center.animate-box
+        %br
+        %br
+        .container.fh5co-text
+          %h4 Slim's News API is a simple API that returns JSON metadata for the news published on reliable online Nigerian news sources.
+          %h4 Use it to display live news headlines and images in your app or on your site!
+
+  #features{"data-section" => "features"}
+    .container.text-center
+      .row
+        .col-md-4
+          = icon('pagelines', class: "fa-3x text-info")
+          %h4.flow-text It's FREE to use
+          %p All you have to do is get an API key and you're ready to go!
+
+        .col-md-4
+          = icon('pagelines', class: "fa-3x text-info")
+          %h4.flow-text 24/7 Availability
+          %p No matter the time or place, Mobile Medics will get you the health care you need
+
+        .col-md-4
+          = icon('sliders', class: "fa-3x text-info")
+          %h4.flow-text CORS Enabled
+          %p You can make calls from javascript. It's so easy to use.
+      %br
+      %br
+      = link_to api_path, class: "button" do
+        = icon('key')
+        Get Api Key
+
+  #sources{"data-section" => "sources"}
+    .container
+      %br
+      %br
+      %h4 Headlines and summaries from the top news outlets in Nigeria, including;
+      .row.r-pb
+        .col-sm-6.col-md-4.col-md-offset-2.source-logo{style: "background-image: url(#{asset_path('nta.jpg')});"}
+        .col-sm-6.col-md-4.col-md-offset-2.source-logo{style: "background-image: url(#{asset_path('guardian.jpeg')});"}
+        .col-sm-6.col-md-4.col-md-offset-2.source-logo{style: "background-image: url(#{asset_path('vanguard.jpg')});"}
+        .col-sm-6.col-md-4.col-md-offset-2.source-logo{style: "background-image: url(#{asset_path('premium-times.png')});"}
+        .col-sm-6.col-md-4.col-md-offset-2.source-logo{style: "background-image: url(#{asset_path('punch.png')});"}
+        .col-sm-6.col-md-4.col-md-offset-2.source-logo{style: "background-image: url(#{asset_path('sahara-reporters.jpg')});"}
+  #documentation{"data-section" => "documentation"}

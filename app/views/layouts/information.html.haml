@@ -1,0 +1,49 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Slim
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+    = stylesheet_link_tag    'information', media: 'all'
+    = javascript_include_tag 'application'
+    = favicon_link_tag 'slim.gif'
+    = csrf_meta_tags
+  %body
+    %ul#dropdown1.dropdown-content
+      %li= link_to "Log Out", destroy_user_session_path, method: :delete
+    .navbar-fixed
+      %nav
+        .nav-wrapper
+          .container
+            = link_to root_path, class: "brand-logo" do
+              Monsieur Slim
+            %ul#nav-mobile.right.hide-on-med-and-down
+              %li= link_to "Blog", posts_path
+              %li= link_to "News", news_index_path
+              %li= link_to "Api", api_path
+              - if current_user
+                %li{class: "dropdown-button", 'data-activates' => 'dropdown1'}
+                  = link_to "#", class: 'blue-text' do
+                    #{current_user.name}
+                    =icon('sort-desc')
+              - else
+                %li= link_to "Log in", new_user_session_path
+            = link_to "#", class: 'button-collapse right blue-text', 'data-activates'=>"slide-out" do
+              = icon('bars')
+
+    = render "layouts/flash"
+    = render 'layouts/side_bar'
+    = yield
+    %footer.page-footer
+      .footer-copyright
+        .container
+          .row
+            .col.s12.l6.m6
+              © Monsieur Slim #{Time.now.year}. All Rights Reserved.
+            .col.s12.l6.m6
+              = link_to "https://twitter.com/SlimMonsieur", class: "col right white-text", target: "_blank" do
+                = icon('twitter')
+              = link_to "https://ng.linkedin.com/in/ikenna-ekechi-159729a4", class: "col right white-text", target: "_blank" do
+                = icon('linkedin')
+              = link_to "mailto:iyke@monsieurslim.com", class: "col right white-text" do
+                = icon('envelope')

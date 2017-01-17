@@ -1,0 +1,30 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Slim
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+    = stylesheet_link_tag    'about', media: 'all'
+    = javascript_include_tag 'about'
+    = favicon_link_tag 'slim.gif'
+    = csrf_meta_tags
+  %body
+    #fh5co-header
+      .container
+        %a.js-fh5co-nav-toggle.fh5co-nav-toggle{:href => "#"}
+          %i
+        #fh5co-logo
+          = link_to root_path do
+            Slim's News Api
+        %nav#fh5co-main-nav
+          %ul
+            %li
+              = link_to "Documentation", "#", {"data-nav-section" => "documentation"}
+            %li
+              = link_to "Sources", news_index_path, {"data-nav-section" => "sources"}
+            %li
+              = link_to "Login", "#", {"data-nav-section" => "about"}
+            %li
+              = link_to "Get Api Key", posts_path
+    = render "layouts/flash"
+    = yield

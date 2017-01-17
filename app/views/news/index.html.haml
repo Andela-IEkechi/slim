@@ -1,0 +1,25 @@
+#myCarousel.carousel.slide{"data-ride" => "carousel"}
+  .carousel-inner{role: "listbox"}
+    .item.active
+      =image_tag("news.jpg")
+
+#news
+  .container
+    .center-align
+      #top
+      %h4.flow-text The News From The Most Reliable Sources
+      .liner.blue.darken-2
+    %br
+    %br
+    #gotoTop
+      = link_to "#top" do
+        = icon('chevron-up')
+    .row
+      - @news.each do |info|
+        .left-align
+          = link_to news_path(info) do
+            .news-post.white
+              %h6= info.published.strftime("%A, %d %b %Y")
+              .liner.blue.darken-2
+              %h5.flow-text= info.title.truncate(100)
+              %p.right.blue-text= info.agency

@@ -1,0 +1,10 @@
+%ul#slide-out.side-nav
+  = link_to "#", class: 'right' do
+    = icon('times')
+  %li= link_to "Blog", posts_path
+  %li= link_to "News", news_index_path
+  %li= link_to "Api", api_path
+  - if current_user
+    %li= link_to "LOG OUT", destroy_user_session_path, method: :delete
+  - else
+    %li= link_to "LOG IN", new_user_session_path
