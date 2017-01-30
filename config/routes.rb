@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'home#show'
 
-  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
+  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks', sessions: :sessions }
   resources :solutions
   resources :comments
   resources :posts
@@ -14,5 +14,13 @@ Rails.application.routes.draw do
 
   get '/about' => 'about#show'
 
+  namespace :api do
+    namespace :v1, defaults: { format: :json } do
+      resources :headlines, only: [:index, :show]
+      resources :sources, only: [:index, :show]
+    end
+  end
+
+  mount Ckeditor::Engine => '/ckeditor'
 end
 

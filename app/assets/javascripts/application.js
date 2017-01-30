@@ -5,7 +5,8 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require materialize-sprockets
-//= require bootstrap-markdown-bundle
+//= require ckeditor/init
+//= require md_simple_editor
 //= require_self
 
 $( document ).ready(function() {

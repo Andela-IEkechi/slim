@@ -1,0 +1,32 @@
+.sign-in
+  .container
+    %br
+    %h4.flow-text Log in
+    .liner.red
+    %br
+    %br
+    .row
+      = link_to omniauth_authorize_path(resource_name, resource_class.omniauth_providers.first), class: "btn btn-large blue darken-4 white-text hoverable" do
+        = icon('facebook')
+        Sign in with Facebook
+    .row
+      = link_to omniauth_authorize_path(resource_name, resource_class.omniauth_providers.last), class: "btn btn-large red white-text hoverable" do
+        = icon('google')
+        Sign in with Google
+
+  -#- resource_class.omniauth_providers.each do |provider|
+  -#  = link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "button hoverable"
+  -#  %br/
+  -#  %br/
+  -#= link_to "Sign in with Facebook", omniauth_authorize_path(resource_name, facebook), class: "button"
+  -#%br
+  -#= link_to "Sign in with Google", omniauth_authorize_path(resource_name, google_oauth2), class: "button"
+
+  -#= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  -#  .form-inputs
+  -#    = f.input :email, required: false, autofocus: true
+  -#    = f.input :password, required: false
+  -#    = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+  -#  .form-actions
+  -#    = f.button :submit, "Log in"
+  -#= render "devise/shared/links"

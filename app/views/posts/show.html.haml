@@ -1,12 +1,46 @@
-%p#notice= notice
+.container
+  %br
+  %br
+  %h4.flow-text= @post.title
+  .liner.red
+  %p.blue-text.text-darken-2 #{@post.created_at.strftime("%A, %d %b %Y")} ( #{pluralize(@post.responses.count, "response")} )
+  %br
+  %br
+  %p= markdown(@post.body)
 
-%p
-  %b Title:
-  = @post.title
-%p
-  %b Body:
-  = @post.body
+  .row
+    - if current_user.try(:admin?)
+      = link_to 'Edit', edit_post_path(@post), class: "btn"
+      = link_to 'Destroy', @post, :method => :delete, :data => { :confirm => 'Are you sure?' },class: "btn red"
+    = link_to 'Back', root_path, class: "btn"
 
-= link_to 'Edit', edit_post_path(@post)
-\|
-= link_to 'Back', posts_path
+  %hr
+  .row
+    %br
+    %h4.flow-text Responses
+    .liner.red
+    - @post.responses.each do |response|
+      .col.s12
+        .card-panel.blue-grey.lighten-5.z-depth-0.hoverable
+          .row
+            .col.s2
+              %br
+              = image_tag("#{response.user.image}", class: 'circle responsive-img', size: '60x60')
+            .col.s10
+              %blockquote
+                %p= markdown(response.body)
+                %cite - #{response.user.name}
+
+
+
+  %br/
+  -#- if current_user
+  .row
+    %ul.collapsible.popout{ 'data-collapsible' => 'accordion' }
+      %li
+        .collapsible-header.blue.darken-4.white-text
+          = icon('comments-o')
+          Respond
+        .collapsible-body
+          = render 'response_form'
+  %br/

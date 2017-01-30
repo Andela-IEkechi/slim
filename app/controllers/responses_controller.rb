@@ -1,28 +1,21 @@
 class ResponsesController < ApplicationController
   before_action :set_response, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
 
-  # GET /responses
-  # GET /responses.json
   def index
     @responses = Response.all
   end
 
-  # GET /responses/1
-  # GET /responses/1.json
   def show
   end
 
-  # GET /responses/new
   def new
     @response = Response.new
   end
 
-  # GET /responses/1/edit
   def edit
   end
 
-  # POST /responses
-  # POST /responses.json
   def create
     @response = Response.new(response_params)
 
@@ -51,8 +44,6 @@ class ResponsesController < ApplicationController
     end
   end
 
-  # DELETE /responses/1
-  # DELETE /responses/1.json
   def destroy
     @response.destroy
     respond_to do |format|
@@ -62,12 +53,10 @@ class ResponsesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_response
       @response = Response.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def response_params
       params.require(:response).permit(:body, :user_id, :post_id)
     end

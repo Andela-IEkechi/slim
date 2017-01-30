@@ -23,8 +23,8 @@
             %li
               = link_to "Sources", news_index_path, {"data-nav-section" => "sources"}
             %li
-              = link_to "Login", "#", {"data-nav-section" => "about"}
+              = link_to "Login", new_user_session_path, {"data-nav-section" => "about"}
             %li
-              = link_to "Get Api Key", posts_path
+              = link_to "Get Api Key", "#"
     = render "layouts/flash"
     = yield

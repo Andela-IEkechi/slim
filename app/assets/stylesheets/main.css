@@ -2510,11 +2510,11 @@ input[type="button"],
         color: #ffffff;
     }
 
-    #header h1 {
+    #header h4 {
         color: rgba(255, 255, 255, 0.5);
         font-size: 1.35em;
         line-height: 1.75em;
-        margin-top: 40em;
+        margin-top: 35em;
     }
 
     #header .image.avatar {

@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170116123415) do
+ActiveRecord::Schema.define(version: 20170130105331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "ckeditor_assets", ["type"], name: "index_ckeditor_assets_on_type", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.integer  "solution_id"
@@ -43,6 +56,7 @@ ActiveRecord::Schema.define(version: 20170116123415) do
     t.text     "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "markdown"
   end
 
   create_table "responses", force: :cascade do |t|
@@ -51,6 +65,7 @@ ActiveRecord::Schema.define(version: 20170116123415) do
     t.integer  "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "markdown"
   end
 
   add_index "responses", ["post_id"], name: "index_responses_on_post_id", using: :btree
@@ -66,20 +81,21 @@ ActiveRecord::Schema.define(version: 20170116123415) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.string   "provider",               default: "", null: false
-    t.string   "uid",                    default: "", null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "provider",               default: "",    null: false
+    t.string   "uid",                    default: "",    null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin",                  default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

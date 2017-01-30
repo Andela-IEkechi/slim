@@ -9,7 +9,6 @@ gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -25,6 +24,21 @@ gem 'exception_notification'
 gem 'feedjira'
 gem 'social-share-button'
 gem 'rails_12factor', group: :production
+gem 'simple_form'
+gem 'ckeditor', github: 'galetahub/ckeditor'
+gem "fog"
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'redcarpet'
+gem "font-awesome-rails"
+gem 'md_simple_editor'
+
+#API
+
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
+gem 'rack-cors', :require => 'rack/cors'
+gem 'rails-api'
+gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   gem 'byebug'

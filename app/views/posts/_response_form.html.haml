@@ -1,0 +1,9 @@
+.container
+  = simple_form_for @post.responses.new do |f|
+    .input-field
+      = md_simple_editor  do
+        = f.input :body, placeholder: "Response....", label: false
+    %br/
+    .actions
+      = f.submit "Post", class: "button"
+  %br/
